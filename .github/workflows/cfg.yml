@@ -17,8 +17,11 @@ jobs:
         run: docker build -t builder .
       - name: Run image
         run: docker run -t -v "$(pwd)/logs/:/home/logs/" builder
-      - name: Copy log file
-        run: docker cp test:/repo/log.txt ./log.txt
+      - name: ls log file
+        run: ls logs
+        
+      #- name: Copy log file
+      #  run: docker cp test:/repo/log.txt ./log.txt
       - name: Artifact
         uses: actions/upload-artifact@v4
         with:
