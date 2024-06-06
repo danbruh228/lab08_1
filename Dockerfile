@@ -1,6 +1,7 @@
 FROM ubuntu:22.04
 COPY . repo/
 WORKDIR repo
+VOLUME /home/logs
 RUN apt update
 RUN apt install -yy gcc g++ cmake
 RUN cmake -H. -B_build -DBUILD_TESTS=ON -DBUILD_COVERAGE=ON
